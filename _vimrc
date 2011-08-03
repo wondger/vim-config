@@ -40,13 +40,15 @@ set laststatus=2 "ÏÔÊ¾×´Ì¬À¸
 
 set syntax=on "Óï·¨¸ßÁÁ
 set softtabstop=4
+set tabstop=4
 set shiftwidth=4
 set confirm "ÔÚ´¦ÀíÎª±£´æ»òÖÆ¶ÈÎÄ¼şµÄÊ±ºò£¬µ¯³öÈ·ÈÏ
 set autoindent "×Ô¶¯Ëõ½ø
 set cindent "CÓïÑÔ·ç¸ñ×Ô¶¯Ëõ½ø
 set foldmethod=indent "°´Ëõ½ø½øĞĞ×Ô¶¯ÕÛµş
 set tabstop=4 "tab¼ü¿í¶È
-set noexpandtab "²»ÒªÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
+"set noexpandtab "²»ÒªÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
+set expandtab "ÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
 set number "ÏÔÊ¾ĞĞºÅ 
 set ruler "ÓÒÏÂ½ÇÏÔÊ¾¹â±êÎ»ÖÃ×´Ì¬ĞĞ
 set iskeyword+=_,$,@,%,#,-,& "´øÓĞÈçÏÂ·ûºÅµÄµ¥´Ê²»Òª±»»»ĞĞ·Ö¸î
@@ -85,14 +87,14 @@ if (g:isGUI)
     hi cursorcolumn guibg=grey25
 endif
 
-" ÉèÖÃ×Ö·û¼¯±àÂë£¬Ä¬ÈÏÊ¹ÓÃgbk
+" ÉèÖÃ×Ö·û¼¯±àÂë£¬Ä¬ÈÏÊ¹ÓÃutf8
 set nobomb "È¥µôutf-bom
 if (g:isWin)
     let &termencoding=&encoding " Í¨³£winÏÂµÄencodingÎªcp936
-    set fileencodings=gbk,gb2312,utf8,cp936,ucs-bom,latin1
+    set fileencodings=utf8,gb2312,gbk,cp936,ucs-bom,latin1
 else
-    set encoding=gbk
-    set fileencodings=gbk,gb2312,utf-8,gb18030,ucs-bom,latin1
+    set encoding=utf8
+    set fileencodings=utf8,gb2312,gbk,gb18030,ucs-bom,latin1
 endif
 "ÉèÖÃĞÂ½¨±£´æ±àÂëÎªutf-8
 map <leader>fu :se fenc=utf-8<cr>
@@ -142,12 +144,13 @@ filetype plugin indent on "´ò¿ªÎÄ¼şÄÚÈİ¼à²â£¬ÎªÌØ¶¨µÄÎÄ¼şÀàĞÍÔØÈë²å¼ş£¬Îª²»Í¬µÄÎ
 nmap <silent><S-n> :NewTemplateTab nie<cr>
 nmap <silent><S-m> :NewTemplateTab sw<cr>
 nmap <silent><S-j> :NewTemplateTab js<cr>
-nmap <silent><S-c> :NewTemplateTab css<cr>
+nmap <silent><S-s> :NewTemplateTab css<cr>
 nmap <silent><S-p> :NewTemplateTab php<cr>
-map <silent><S-c><S-h> :set filetype=xhtml "filetype html<cr>
-map <silent><S-c><S-j> :set filetype=javascript "filetype javascript<cr>
-map <silent><S-c><S-c> :set filetype=css "filetype css<cr>
-map <silent><S-c><S-p> :set filetype=php "filetype php<cr>
+nmap <silent><S-x> :NewTemplateTab xml<cr>
+map <silent><S-f><S-h> :set filetype=xhtml "filetype html<cr>
+map <silent><S-f><S-j> :set filetype=javascript "filetype javascript<cr>
+map <silent><S-f><S-c> :set filetype=css "filetype css<cr>
+map <silent><S-f><S-p> :set filetype=php "filetype php<cr>
 map <silent><C-Tab> :tabn<cr>
 
 " ÔÚÎÄ¼şÃûÉÏ°´gfÊ±£¬ÔÚĞÂµÄtabÖĞ´ò¿ª

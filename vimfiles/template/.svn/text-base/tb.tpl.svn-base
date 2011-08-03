@@ -9,7 +9,7 @@
 <body>
 <div id="page">
     <div id="header">
-		
+	    #cursor#	
     </div>
     <div id="content">
 		

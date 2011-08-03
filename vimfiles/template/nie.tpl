@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="NIE-topBar"></div><!--#include virtual="/global_site_inc/topbar.html"-->
-
+#cursor#
 <div class="copyright" id="NIE-copyRight"></div>
 <div id="botCode" style="display:none;">
 <script src="http://res.nie.netease.com/comm/js/jquery(mixNIE).last.js" type="text/javascript"></script>

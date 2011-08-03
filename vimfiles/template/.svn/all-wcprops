@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 40
-/svn/!svn/ver/72/trunk/vimfiles/template
+/svn/!svn/ver/81/trunk/vimfiles/template
 END
 css_201106.tpl
 K 25
@@ -19,7 +19,7 @@ tb.tpl
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/!svn/ver/72/trunk/vimfiles/template/tb.tpl
+/svn/!svn/ver/80/trunk/vimfiles/template/tb.tpl
 END
 php.tpl
 K 25
@@ -31,23 +31,29 @@ css.tpl
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/!svn/ver/72/trunk/vimfiles/template/css.tpl
+/svn/!svn/ver/80/trunk/vimfiles/template/css.tpl
 END
 sw.tpl
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/!svn/ver/72/trunk/vimfiles/template/sw.tpl
+/svn/!svn/ver/80/trunk/vimfiles/template/sw.tpl
 END
 nie.tpl
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/!svn/ver/72/trunk/vimfiles/template/nie.tpl
+/svn/!svn/ver/80/trunk/vimfiles/template/nie.tpl
 END
 js.tpl
 K 25
 svn:wc:ra_dav:version-url
 V 47
 /svn/!svn/ver/72/trunk/vimfiles/template/js.tpl
+END
+xml.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/81/trunk/vimfiles/template/xml.tpl
 END
