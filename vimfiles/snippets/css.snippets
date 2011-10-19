@@ -15,6 +15,8 @@ snippet *
 	*{margin:0;padding:0;list-style:none;}${1}
 snippet z
 	zoom:1;${1}
+snippet ep
+	zoom:expression(function(el){el.style.width=el.parentNode.offsetWidth+'px'}(this));
 snippet zi
 	z-index:${1:1};${2}
 snippet f
@@ -340,7 +342,7 @@ snippet ht
 snippet st
 	"\5B8B\4F53"${1}
 snippet dk
-	"Courier New",Courier,monospace;${1}
+	"Courier New",Courier,monospace${1}
 snippet color
 	/*color*/
 	.b,strong{font-weight:bold!important;}

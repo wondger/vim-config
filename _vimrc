@@ -1,107 +1,96 @@
-set shortmess=atl "¹Ø±ÕÏÔÊ¾Ô®ÖúÌáÊ¾
-set nocompatible "gvimÔËĞĞÔÚÔöÇ¿Ä£Ê½ÏÂ,²»Ê¹ÓÃviµÄ¼üÅÌÄ£Ê½
-source $VIMRUNTIME/vimrc_example.vim "ÔØÈëvimrc_example.vim
-source $VIMRUNTIME/mswin.vim "ÔØÈëmswin.vim
+set shortmess=atl "å…³é—­æ˜¾ç¤ºæ´åŠ©æç¤º
+set nocompatible "gvimè¿è¡Œåœ¨å¢å¼ºæ¨¡å¼ä¸‹,ä¸ä½¿ç”¨viçš„é”®ç›˜æ¨¡å¼
+source $VIMRUNTIME/vimrc_example.vim "è½½å…¥vimrc_example.vim
+source $VIMRUNTIME/mswin.vim "è½½å…¥mswin.vim
 behave mswin "?
 
-"======================================
-"×ÖÌåÉèÖÃ
-if has("win32")
-    set gfn=Courier_New:h12 "guifont
-    "set gfn=YaHei_mono:h12 "guifont
-    "set gfw=YaHei_mono:h12 "guifontwide
-	"exec 'set guifont='.iconv('Courier\ New', &enc, 'gbk').':h12:cANSI'
-    "exec 'set guifontwide='.iconv('Yahei_Mono', &enc, 'gbk').':h11'
-	
-endif
-"Æô¶¯Ê±´°¿Ú×î´ó»¯
-if has('gui_running')
-	if has("win32")
-		au GUIEnter * simalt ~x
-	endif
-endif
-
-set nocp "²»¼æÈİÄ£Ê½
-set backspace=indent,eol,start
-set whichwrap=b,s,<,>,[,]
-set sm "showmatch ÉèÖÃ¸ßÁÁÆ¥Åä
-set cino=:0,g0
-set hls
-set nu "ÏÔÊ¾ĞĞºÅ
-set ai "×Ô¶¯Ëõ½ø
-set si "ÖÇÄÜËõ½ø
-set go= "set guioptions= Òş²Ø²Ëµ¥À¸
-set helplang=cn "ÉèÖÃ°ïÖúÓïÑÔ
-set incsearch "ÔöÁ¿ËÑË÷
-set completeopt=longest,menu
-set mouse=a "ËùÓĞÄ£Ê½ÏÂÊ¹ÓÃÊó±ê
-set laststatus=2 "ÏÔÊ¾×´Ì¬À¸
-"set autoread "×Ô¶¯¼ÓÔØ
-
-set syntax=on "Óï·¨¸ßÁÁ
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
-set confirm "ÔÚ´¦ÀíÎª±£´æ»òÖÆ¶ÈÎÄ¼şµÄÊ±ºò£¬µ¯³öÈ·ÈÏ
-set autoindent "×Ô¶¯Ëõ½ø
-set cindent "CÓïÑÔ·ç¸ñ×Ô¶¯Ëõ½ø
-set foldmethod=indent "°´Ëõ½ø½øĞĞ×Ô¶¯ÕÛµş
-set tabstop=4 "tab¼ü¿í¶È
-"set noexpandtab "²»ÒªÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
-set expandtab "ÓÃ¿Õ¸ñ´úÌæÖÆ±í·û
-set number "ÏÔÊ¾ĞĞºÅ 
-set ruler "ÓÒÏÂ½ÇÏÔÊ¾¹â±êÎ»ÖÃ×´Ì¬ĞĞ
-set iskeyword+=_,$,@,%,#,-,& "´øÓĞÈçÏÂ·ûºÅµÄµ¥´Ê²»Òª±»»»ĞĞ·Ö¸î
-set matchtime=5 "¸ßÁÁÏÔÊ¾Æ¥ÅäµÄÀ¨ºÅ
-set smarttab "ĞĞÊ×µÄ ¸ù¾İ'sirtwidth'²åÈë¿Õ°×
-let php_folding=1 "ÕÛµşÀà¡¢º¯ÊıµÈ
-set backspace=indent,eol,start "ÔÚ²åÈë×´Ì¬ÏÂÊ¹ÓÃÍË¸ñºÍdelete
-set showcmd "ÔÚ×´Ì¬À¸ÏÔÊ¾Ä¿Ç°ËùÖ´ĞĞµÄÖ¸Áî
-set showmatch "ÔÙÊäÈëÀ¨ºÅÊ±¹â±ê»á¶ÌÔİµØÌøµ½ÓëÖ®ÏàÆ¥ÅäµÄÀ¨ºÅ´¦£¬²»Ó°ÏìÊäÈë
-let mapleader = ','
-set tags=$VIM/vimfiles/tags "ÉèÖÃtagsÂ·¾¶
-
-" ×Ô¼ºĞ´µÄ¼¸¸öÃüÁî
-nmap <silent><leader>/ ^i//<esc>
-imap <silent><leader>t <c-r>=strftime('%c')<cr>
-au InsertLeave * write "ÍË³öinsertÄ£Ê½Ê±×Ô¶¯±£´æ
-
-" ÅĞ¶Ï²Ù×÷ÏµÍ³
+" åˆ¤æ–­æ“ä½œç³»ç»Ÿ
 if (has("win32") || has("win64") || has("win32unix"))
     let g:isWin = 1
 else
     let g:isWin = 0
 endif
 
-" ÅĞ¶ÏÊÇÖÕ¶Ë»¹ÊÇgvim
-if has("gui_running")
+" åˆ¤æ–­æ˜¯ç»ˆç«¯è¿˜æ˜¯gvim
+if (has("gui_running"))
     let g:isGUI = 1
 else
     let g:isGUI = 0
 endif
 
-"ÔÚgvimÖĞ¸ßÁÁµ±Ç°ĞĞ
+"======================================
+"å­—ä½“è®¾ç½®
+if (g:isWin)
+    set gfn=Courier_New:h12 "guifont
+    "set gfn=YaHei_mono:h12 "guifont
+    "set gfw=YaHei_mono:h12 "guifontwide
+    "exec 'set guifont='.iconv('Courier\ New', &enc, 'gbk').':h12:cANSI'
+    "exec 'set guifontwide='.iconv('Yahei_Mono', &enc, 'gbk').':h11'
+endif
+"å¯åŠ¨æ—¶çª—å£æœ€å¤§åŒ–
 if (g:isGUI)
-	set cursorline
-	hi cursorline guibg=grey25
-    hi cursorcolumn guibg=grey25
+    au GUIEnter * simalt ~x
 endif
 
-" ÉèÖÃ×Ö·û¼¯±àÂë£¬Ä¬ÈÏÊ¹ÓÃutf8
-set nobomb "È¥µôutf-bom
+set nocp "ä¸å…¼å®¹æ¨¡å¼
+set backspace=indent,eol,start
+set whichwrap=b,s,<,>,[,]
+set sm "showmatch è®¾ç½®é«˜äº®åŒ¹é…
+set cino=:0,g0
+set hls
+set nu "æ˜¾ç¤ºè¡Œå·
+set ai "è‡ªåŠ¨ç¼©è¿›
+set si "æ™ºèƒ½ç¼©è¿›
+set go= "set guioptions= éšè—èœå•æ 
+set helplang=cn "è®¾ç½®å¸®åŠ©è¯­è¨€
+set incsearch "å¢é‡æœç´¢
+set completeopt=longest,menu
+set mouse=a "æ‰€æœ‰æ¨¡å¼ä¸‹ä½¿ç”¨é¼ æ ‡
+set laststatus=2 "æ˜¾ç¤ºçŠ¶æ€æ 
+"set autoread "è‡ªåŠ¨åŠ è½½
+
+set syntax=on "è¯­æ³•é«˜äº®
+set softtabstop=4
+set shiftwidth=4
+set confirm "åœ¨å¤„ç†ä¸ºä¿å­˜æˆ–åˆ¶åº¦æ–‡ä»¶çš„æ—¶å€™ï¼Œå¼¹å‡ºç¡®è®¤
+set cindent "Cè¯­è¨€é£æ ¼è‡ªåŠ¨ç¼©è¿›
+set foldmethod=indent "æŒ‰ç¼©è¿›è¿›è¡Œè‡ªåŠ¨æŠ˜å 
+set tabstop=4 "tabé”®å®½åº¦
+"set noexpandtab "ä¸è¦ç”¨ç©ºæ ¼ä»£æ›¿åˆ¶è¡¨ç¬¦
+set expandtab "ç”¨ç©ºæ ¼ä»£æ›¿åˆ¶è¡¨ç¬¦
+set number "æ˜¾ç¤ºè¡Œå· 
+set ruler "å³ä¸‹è§’æ˜¾ç¤ºå…‰æ ‡ä½ç½®çŠ¶æ€è¡Œ
+set iskeyword+=_,$,@,%,#,-,& "å¸¦æœ‰å¦‚ä¸‹ç¬¦å·çš„å•è¯ä¸è¦è¢«æ¢è¡Œåˆ†å‰²
+set matchtime=5 "é«˜äº®æ˜¾ç¤ºåŒ¹é…çš„æ‹¬å·
+set smarttab "è¡Œé¦–çš„ æ ¹æ®'shiftwidth'æ’å…¥ç©ºç™½
+let php_folding=1 "æŠ˜å ç±»ã€å‡½æ•°ç­‰
+set backspace=indent,eol,start "åœ¨æ’å…¥çŠ¶æ€ä¸‹ä½¿ç”¨é€€æ ¼å’Œdelete
+set showcmd "åœ¨çŠ¶æ€æ æ˜¾ç¤ºç›®å‰æ‰€æ‰§è¡Œçš„æŒ‡ä»¤
+set showmatch "å†è¾“å…¥æ‹¬å·æ—¶å…‰æ ‡ä¼šçŸ­æš‚åœ°è·³åˆ°ä¸ä¹‹ç›¸åŒ¹é…çš„æ‹¬å·å¤„ï¼Œä¸å½±å“è¾“å…¥
+let mapleader = ','
+set tags=$VIM/vimfiles/tags "è®¾ç½®tagsè·¯å¾„
+
+" è‡ªå·±å†™çš„å‡ ä¸ªå‘½ä»¤
+nmap <silent><leader>/ ^i//<esc>
+imap <silent><leader>t <c-r>=strftime('%c')<cr>
+imap <silent><leader>s <c-r>=localtime()<cr>
+"au InsertLeave * write "é€€å‡ºinsertæ¨¡å¼æ—¶è‡ªåŠ¨ä¿å­˜
+
+" è®¾ç½®å­—ç¬¦é›†ç¼–ç ï¼Œé»˜è®¤ä½¿ç”¨utf8
+set nobomb "å»æ‰utf-bom
 if (g:isWin)
-    let &termencoding=&encoding " Í¨³£winÏÂµÄencodingÎªcp936
+    let &termencoding=&encoding " é€šå¸¸winä¸‹çš„encodingä¸ºcp936
     set fileencodings=utf8,gb2312,gbk,cp936,ucs-bom,latin1
 else
     set encoding=utf8
     set fileencodings=utf8,gb2312,gbk,gb18030,ucs-bom,latin1
 endif
-"ÉèÖÃĞÂ½¨±£´æ±àÂëÎªutf-8
+"è®¾ç½®æ–°å»ºä¿å­˜ç¼–ç ä¸ºutf-8
 map <leader>fu :se fenc=utf-8<cr>
 map <leader>fg :se fenc=gb2312<cr>
 
-" ¿ì½İÊäÈë
-" ×Ô¶¯Íê³ÉÀ¨ºÅºÍÒıºÅ
+" å¿«æ·è¾“å…¥
+" è‡ªåŠ¨å®Œæˆæ‹¬å·å’Œå¼•å·
 inoremap ( ()<esc>:let leavechar=")"<cr>i
 inoremap [ []<esc>:let leavechar="]"<cr>i
 inoremap { {}<esc>:let leavechar="}"<cr>i
@@ -133,27 +122,28 @@ noremap <silent><leader>rc :tabnew $MYVIMRC<cr>
 autocmd! bufwritepost _vimrc source $MYVIMRC
 
 "=======================================
-"ÎÄ¼şÉèÖÃ
-set nobackup "½ûÖ¹Éú³É±¸·İÎÄ¼ş
-set noswapfile "½ûÖ¹Éú³ÉÁÙÊ±ÎÄ¼ş
-set autowrite "×Ô¶¯±£´æ
-filetype plugin indent on "´ò¿ªÎÄ¼şÄÚÈİ¼à²â£¬ÎªÌØ¶¨µÄÎÄ¼şÀàĞÍÔØÈë²å¼ş£¬Îª²»Í¬µÄÎÄ¼şÀàĞÍ¶¨Òå²»Í¬µÄËõ½ø¸ñÊ½
+"æ–‡ä»¶è®¾ç½®
+set nobackup "ç¦æ­¢ç”Ÿæˆå¤‡ä»½æ–‡ä»¶
+set noswapfile "ç¦æ­¢ç”Ÿæˆä¸´æ—¶æ–‡ä»¶
+set autowrite "è‡ªåŠ¨ä¿å­˜
+filetype plugin indent on "æ‰“å¼€æ–‡ä»¶å†…å®¹ç›‘æµ‹ï¼Œä¸ºç‰¹å®šçš„æ–‡ä»¶ç±»å‹è½½å…¥æ’ä»¶ï¼Œä¸ºä¸åŒçš„æ–‡ä»¶ç±»å‹å®šä¹‰ä¸åŒçš„ç¼©è¿›æ ¼å¼
 
 "=======================================
-"¿ì½İ¼ü/Ó³Éä
-nmap <silent><S-n> :NewTemplateTab nie<cr>
+"å¿«æ·é”®/æ˜ å°„
+nmap <silent><S-n> :NewTemplateTab tb<cr>
 nmap <silent><S-m> :NewTemplateTab sw<cr>
 nmap <silent><S-j> :NewTemplateTab js<cr>
 nmap <silent><S-s> :NewTemplateTab css<cr>
 nmap <silent><S-p> :NewTemplateTab php<cr>
 nmap <silent><S-x> :NewTemplateTab xml<cr>
-map <silent><S-f><S-h> :set filetype=xhtml "filetype html<cr>
-map <silent><S-f><S-j> :set filetype=javascript "filetype javascript<cr>
-map <silent><S-f><S-c> :set filetype=css "filetype css<cr>
-map <silent><S-f><S-p> :set filetype=php "filetype php<cr>
+map <silent><S-t><S-h> :set filetype=xhtml "filetype html<cr>
+map <silent><S-t><S-j> :set filetype=javascript "filetype javascript<cr>
+map <silent><S-t><S-c> :set filetype=css "filetype css<cr>
+map <silent><S-t><S-p> :set filetype=php "filetype php<cr>
+map <silent><S-t><S-v> :set filetype=vim "filetype php<cr>
 map <silent><C-Tab> :tabn<cr>
 
-" ÔÚÎÄ¼şÃûÉÏ°´gfÊ±£¬ÔÚĞÂµÄtabÖĞ´ò¿ª
+" åœ¨æ–‡ä»¶åä¸ŠæŒ‰gfæ—¶ï¼Œåœ¨æ–°çš„tabä¸­æ‰“å¼€
 map <silent>gf :tabnew <cfile><cr>
 map <S-F> :tabnew <cfile><cr>
 map <silent><leader>q :q<cr>
@@ -169,12 +159,22 @@ map <leader>ms :mksession! $VIM/
 map <leader>wi :wviminfo 
 map <leader>ri :rviminfo 
 map <leader>vsf :vertical sfind 
-map <silent><leader>w :w<cr>
+map <leader>df :vert diffsplit 
+"å–æ¶ˆæœç´¢é«˜äº®
+map <silent><C-h> :noh<cr>
 
+"è‡ªåŠ¨è¡¥å…¨
+"FORWARD
+nmap <C-N> <C-X><C-N>
+"BACKWARD
+nmap <C-P> <C-X><C-P>
 inoremap <C-]> <C-X><C-]>
+"æ–‡ä»¶åè¡¥å…¨
 inoremap <C-F> <C-X><C-F>
-inoremap <C-D> <C-X><C-D>
+inoremap <C-D> <C-X><C-D> 
+"æ•´è¡Œè¡¥å…¨
 inoremap <C-L> <C-X><C-L>
+
 
 nmap <Tab> <C-W><C-W>
 map <leader>ftp :tabnew ftp://username@address/path
@@ -189,11 +189,9 @@ map <leader>fm :tabnew ftp://wondger@122.115.33.115/domains/omiga.org/public_htm
 "plugin settings
 """"""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
-"NERD_Commenter settings
+"jsbeautify
 """"""""""""""""""""""""""""""
-map <leader>z <leader>cc
-map <leader>zs <leader>cs
-map <leader>zu <leader>cu
+nmap <leader>fj :call g:Jsbeautify()<cr>
 """"""""""""""""""""""""""""""
 " netrw setting
 """"""""""""""""""""""""""""""
@@ -206,22 +204,22 @@ nmap <silent><leader>d :NERDTree<cr>
 " Tag list (ctags)
 """"""""""""""""""""""""""""""
 let Tlist_Ctags_Cmd = 'ctags'
-let Tlist_Show_One_File = 1            "²»Í¬Ê±ÏÔÊ¾¶à¸öÎÄ¼şµÄtag£¬Ö»ÏÔÊ¾µ±Ç°ÎÄ¼şµÄ
-let Tlist_Exit_OnlyWindow = 1          "Èç¹ûtaglist´°¿ÚÊÇ×îºóÒ»¸ö´°¿Ú£¬ÔòÍË³övim
-let Tlist_Use_Right_Window = 1         "ÔÚÓÒ²à´°¿ÚÖĞÏÔÊ¾taglist´°¿Ú 
-let Tlist_Auto_Open = 1				   "×Ô¶¯´ò¿ªtaglist
+let Tlist_Show_One_File = 1 "ä¸åŒæ—¶æ˜¾ç¤ºå¤šä¸ªæ–‡ä»¶çš„tagï¼Œåªæ˜¾ç¤ºå½“å‰æ–‡ä»¶çš„
+let Tlist_Exit_OnlyWindow = 1 "å¦‚æœtaglistçª—å£æ˜¯æœ€åä¸€ä¸ªçª—å£ï¼Œåˆ™é€€å‡ºvim
+let Tlist_Use_Right_Window = 1 "åœ¨å³ä¾§çª—å£ä¸­æ˜¾ç¤ºtaglistçª—å£ 
+let Tlist_Auto_Open = 1 "è‡ªåŠ¨æ‰“å¼€taglist
 map <silent> <F9> :TlistToggle<cr>
 
 """"""""""""""""""""""""""""""
 " BufExplorer
 """"""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0       " Do not show default help.
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerSortBy='mru'        " Sort by most recently used.
-let g:bufExplorerSplitRight=0        " Split left.
-let g:bufExplorerSplitVertical=1     " Split vertically.
-let g:bufExplorerSplitVertSize = 30  " Split width
-let g:bufExplorerUseCurrentWindow=1  " Open in new window.
+let g:bufExplorerDefaultHelp=0 " Do not show default help.
+let g:bufExplorerShowRelativePath=1 " Show relative paths.
+let g:bufExplorerSortBy='mru' " Sort by most recently used.
+let g:bufExplorerSplitRight=0 " Split left.
+let g:bufExplorerSplitVertical=1 " Split vertically.
+let g:bufExplorerSplitVertSize=30 " Split width
+let g:bufExplorerUseCurrentWindow=1 " Open in new window.
 autocmd BufWinEnter \[Buf\ List\] setl nonumber 
 
 """"""""""""""""""""""""""""""
@@ -237,20 +235,20 @@ nmap <C-W><C-B> :BottomExplorerWindow<cr>
 """"""""""""""""""""""""""""""
 " lookupfile setting
 """"""""""""""""""""""""""""""
-let g:LookupFile_MinPatLength = 2               "×îÉÙÊäÈë2¸ö×Ö·û²Å¿ªÊ¼²éÕÒ
-let g:LookupFile_PreserveLastPattern = 0        "²»±£´æÉÏ´Î²éÕÒµÄ×Ö·û´®
-let g:LookupFile_PreservePatternHistory = 1     "±£´æ²éÕÒÀúÊ·
-let g:LookupFile_AlwaysAcceptFirst = 1          "»Ø³µ´ò¿ªµÚÒ»¸öÆ¥ÅäÏîÄ¿
-let g:LookupFile_AllowNewFiles = 0              "²»ÔÊĞí´´½¨²»´æÔÚµÄÎÄ¼ş
-if filereadable("./filenametags")                "ÉèÖÃtagÎÄ¼şµÄÃû×Ö
+let g:LookupFile_MinPatLength = 2               "æœ€å°‘è¾“å…¥2ä¸ªå­—ç¬¦æ‰å¼€å§‹æŸ¥æ‰¾
+let g:LookupFile_PreserveLastPattern = 0        "ä¸ä¿å­˜ä¸Šæ¬¡æŸ¥æ‰¾çš„å­—ç¬¦ä¸²
+let g:LookupFile_PreservePatternHistory = 1     "ä¿å­˜æŸ¥æ‰¾å†å²
+let g:LookupFile_AlwaysAcceptFirst = 1          "å›è½¦æ‰“å¼€ç¬¬ä¸€ä¸ªåŒ¹é…é¡¹ç›®
+let g:LookupFile_AllowNewFiles = 0              "ä¸å…è®¸åˆ›å»ºä¸å­˜åœ¨çš„æ–‡ä»¶
+if filereadable("./filenametags")                "è®¾ç½®tagæ–‡ä»¶çš„åå­—
 let g:LookupFile_TagExpr = '"./filenametags"'
 endif
-"Ó³ÉäLookupFileÎª,lk
+"æ˜ å°„LookupFileä¸º,lk
 nmap <silent><leader>lk :LUTags<cr>
-"Ó³ÉäLUBufsÎª,ll
+"æ˜ å°„LUBufsä¸º,ll
 nmap <silent><leader>ll :LUBufs<cr>
-"Ó³ÉäLUWalkÎª,lw
-nmap <silent><leader>lw :LUWalk<cr>
+    "æ˜ å°„LUWalkä¸º,lw
+    nmap <silent><leader>lw :LUWalk<cr>
 
 """"""""""""""""""""""""""""""
 " SuperTab setting
@@ -260,15 +258,80 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-T>"
 
 set diffexpr=MyDiff()
 
-if (has("gui_running"))
-" Í¼ĞÎ½çÃæÏÂ²»ÕÛµş´úÂë
+if (g:isGUI)
+" å›¾å½¢ç•Œé¢ä¸‹ä¸æŠ˜å ä»£ç 
     set nowrap
     set guioptions+=b
     colo torte
 else
-" vimÏÂÕÛµş´úÂë£¬ÅäÉ«Ñ¡Îªron
+" vimä¸‹æŠ˜å ä»£ç ï¼Œé…è‰²é€‰ä¸ºron
     set wrap
-    colo ron
+    colo torte
+endif
+
+"é…è‰²å¼€å§‹
+
+"åœ¨gvimä¸­é«˜äº®å½“å‰è¡Œ
+if (g:isGUI)
+    set cursorline
+    "å¦‚ä½•æ²»åœ¨å½“å‰çª—å£æ‰§è¡ŒæŸå‹å‘½ä»¤
+    "au BufNewFile,BufRead *.html :set cursorcolumn
+    "set cursorcolumn
+    "é¢œè‰²è®¾ç½®æ²¡ä½œç”¨
+    hi cursorline guibg=#333333
+    hi cursorcolumn guibg=#333333
+endif
+
+"æ˜¾ç¤ºç¼©è¿›å‚è€ƒçº¿
+" display indentation guides
+set list listchars=tab:\â”Š\ 
+" convert spaces to tabs when reading file
+autocmd! bufreadpost * set noexpandtab | retab! 4
+" convert tabs to spaces before writing file
+autocmd! bufwritepre * set expandtab | retab! 4
+" convert spaces to tabs after writing file (to show guides again)
+autocmd! bufwritepost * set noexpandtab | retab! 4
+
+hi folded guibg=#000000 guifg=#666666 ctermfg=grey ctermbg=darkgrey
+hi foldcolumn guibg=black guifg=grey20 ctermfg=4 ctermbg=7
+"è¡Œå·
+hi linenr guifg=#005F00
+"æ³¨é‡Š
+hi comment guifg=#666666
+
+"é…è‰²ç»“æŸ
+
+function! MyDiff()
+let opt = '-a --binary '
+if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+let arg1 = v:fname_in
+if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+let arg2 = v:fname_new
+if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+let arg3 = v:fname_out
+if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+let eq = ''
+if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+else
+    let cmd = $VIMRUNTIME . '\diff'
+endif
+silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+if (g:isGUI)
+    set cursorline
+    "å¦‚ä½•æ²»åœ¨å½“å‰çª—å£æ‰§è¡ŒæŸå‹å‘½ä»¤
+    "au BufNewFile,BufRead *.html :set cursorcolumn
+    "set cursorcolumn
+    "é¢œè‰²è®¾ç½®æ²¡ä½œç”¨
+    hi cursorline guibg=#444444
+    hi cursorcolumn guibg=#444444
 endif
 
 function! MyDiff()

@@ -171,6 +171,8 @@ snippet reset
 	/*reset*/
 snippet *
 	*{margin:0;padding:0;list-style:none;}
+snippet ep
+	zoom:expression(function(el){el.style.width=el.parentNode.offsetWidth+'px'}(this));
 snippet co
 	color:#${1};${2}
 snippet bg
@@ -635,7 +637,7 @@ snippet br
 	<br />${1}
 snippet c
 	class="${1}"${2}
-snippet i
+snippet id
 	id="${1}"${2}
 snippet tit
 	title="${1}"${2}
@@ -657,6 +659,8 @@ snippet spi
 	<span id="${1}">${2}</span>${3}
 snippet p
 	<p>${1}</p>
+snippet i
+	<i>${1}</i>${2}
 snippet pc
 	<p class="${1}">${2}</p>
 snippet pi
@@ -805,12 +809,18 @@ snippet form
 snippet table
 	<table border="0" cellspacing="0" cellpadding="0">
 		<tr>
-			<th>${1}</th>${3}
+			<th>${1}</th>${2}
 		</tr>
 		<tr>
 			<td></td>
 		</tr>
 	</table>
+snippet ca
+	<caption>${1}</caption>${2}
+snippet cs
+	colspan="${1}"${2}
+snippet rs
+	rowspan="${1}"${2}
 snippet tr
 	<tr>${1}</tr>
 snippet td
@@ -847,7 +857,7 @@ snippet inc
 snippet jq
 	http://res.nie.netease.com/comm/js/jquery(mixNIE).last.js
 snippet ks
-	<script src="http://a.tbcdn.cn/s/kissy/1.1.6/kissy-min.js" type="text/javascript"></script>
+	<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js" type="text/javascript"></script>
 snippet gamenav
 	<div class="gamenav">
 		<a id="gn1" href="${1:http://dt2.163.com/index.html}" target="_blank">½øÈë¹ÙÍø</a><a id="gn2" href="${2:http://dt2.163.com/reg/}" target="_blank">×¢²áÕÊºÅ</a><a id="gn3" href="${3:http://dt2.163.com/download/}" target="_blank">ÏÂÔØÓÎÏ·</a>
